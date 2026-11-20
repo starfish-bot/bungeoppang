@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>붕어빵 굽기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>붕어빵 굽기</h1>
+  <p class="sub">틀을 눌러 붕어빵을 굽고, 모은 붕어빵으로 가게를 키워 보세요.</p>
+
+  <p class="score" id="score" aria-live="polite">0개</p>
+  <p class="rate" id="rate">클릭당 1개 · 초당 0개</p>
+
+  <div class="stage" id="stage">
+    <button class="fish" id="fish" aria-label="붕어빵 굽기">
+      <svg viewBox="0 0 300 200" aria-hidden="true">
+        <path d="M232 100 L292 50 Q280 100 292 150 Z" fill="var(--crust-dark)"/>
+        <ellipse cx="140" cy="100" rx="125" ry="80" fill="var(--crust)"/>
+        <path d="M70 40 Q140 8 210 40" fill="none" stroke="var(--crust-dark)" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+        <g stroke="var(--crust-dark)" stroke-width="4" stroke-linecap="round" opacity=".55" fill="none">
+          <path d="M120 40 Q112 100 120 160"/><path d="M155 34 Q147 100 155 166"/><path d="M190 42 Q182 100 190 158"/>
+          <path d="M95 75 L215 75"/><path d="M92 105 L218 105"/><path d="M100 135 L212 135"/>
+        </g>
+        <circle cx="62" cy="88" r="9" fill="#2b1a08"/><circle cx="59" cy="85" r="3" fill="#fff"/>
+        <path d="M30 118 Q50 132 72 124" fill="none" stroke="var(--crust-dark)" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <h2>가게 키우기</h2>
+  <div class="list" id="list"></div>
+
+  <footer>
+    <button class="ghost" id="reset">처음부터 다시</button>
+  </footer>
+</main>
+
+<script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+:root{
+  color-scheme: light;
+  --bg:#e6edf3; --surface:#f6f9fb; --line:#c5d2dd; --text:#1a2733; --muted:#5a6b7a;
+  --accent:#c77a00; --accent-ink:#ffffff; --crust:#e8a33a; --crust-dark:#b8741a; --glow:rgba(232,163,58,.35);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#0f1822; --surface:#172431; --line:#2a3b4c; --text:#e8eef4; --muted:#93a4b4;
+    --accent:#f2b04a; --accent-ink:#1a1204; --glow:rgba(242,176,74,.28);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#0f1822; --surface:#172431; --line:#2a3b4c; --text:#e8eef4; --muted:#93a4b4;
+  --accent:#f2b04a; --accent-ink:#1a1204; --glow:rgba(242,176,74,.28);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.5}
+main{max-width:30rem;margin:0 auto;padding:1.5rem 1rem 2.5rem}
+h1{font-family:"Jua","Noto Sans KR",sans-serif;font-weight:400;font-size:1.6rem;margin:0 0 .25rem}
+.sub{margin:0;color:var(--muted);font-size:.9rem}
+.score{margin:1.25rem 0 .25rem;font-family:"Jua","Noto Sans KR",sans-serif;font-size:2.8rem;line-height:1.1}
+.rate{margin:0;color:var(--muted);font-size:.95rem}
+.stage{position:relative;display:grid;place-items:center;margin:1.25rem 0;padding:1.5rem 0;border-radius:1.5rem;background:radial-gradient(circle at 50% 55%,var(--glow),transparent 65%),var(--surface);border:1px solid var(--line);overflow:hidden;user-select:none;-webkit-user-select:none}
+.fish{width:min(70%,16rem);aspect-ratio:1.5;border:0;background:none;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:transform .08s ease}
+.fish:active{transform:scale(.93) rotate(-2deg)}
+.fish:focus-visible{outline:3px solid var(--accent);outline-offset:6px;border-radius:1rem}
+.fish svg{width:100%;height:100%;display:block;overflow:visible}
+.pop{position:absolute;pointer-events:none;font-family:"Jua",sans-serif;font-size:1.4rem;color:var(--accent);animation:up .8s ease-out forwards}
+@keyframes up{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-3.5rem)}}
+h2{font-size:1.05rem;margin:1.5rem 0 .5rem}
+.list{display:grid;gap:.5rem}
+.up{display:grid;grid-template-columns:1fr auto;gap:.1rem .75rem;align-items:center;width:100%;text-align:left;font:inherit;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.7rem .9rem;cursor:pointer}
+.up:hover:not(:disabled){border-color:var(--accent)}
+.up:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.up:disabled{opacity:.5;cursor:not-allowed}
+.up b{font-weight:700}
+.up .d{grid-column:1;color:var(--muted);font-size:.85rem}
+.up .c{grid-row:1/3;grid-column:2;text-align:right;font-weight:700;color:var(--accent)}
+.up .c small{display:block;color:var(--muted);font-weight:400}
+footer{margin-top:1.5rem;display:flex;gap:.5rem;flex-wrap:wrap}
+.ghost{font:inherit;font-size:.85rem;color:var(--muted);background:none;border:1px solid var(--line);border-radius:.6rem;padding:.4rem .8rem;cursor:pointer}
+.ghost:hover{color:var(--text);border-color:var(--muted)}
+@media (prefers-reduced-motion: reduce){.fish{transition:none}.pop{animation:none;opacity:0}}
